@@ -1,0 +1,14 @@
+feign:
+  client:
+    config:
+      bookFeignClient:
+        loggerLevel: FULL
+
+client:
+  book:
+    baseUrl: https://www.anapioficeandfire.com/api
+
+logging:
+  level:
+    root: INFO
+    com.got.gotapi.feign: iNFO
