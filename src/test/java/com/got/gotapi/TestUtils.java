@@ -6,6 +6,8 @@ import org.assertj.core.util.Lists;
 
 import java.util.List;
 
+import com.got.gotapi.model.Character;
+
 public class TestUtils {
 
     public static Book getFirstBook() {
@@ -44,6 +46,26 @@ public class TestUtils {
 
     public static List<Book> getBookList() {
         return Lists.list(getFirstBook(), getSecondBook());
+    }
+
+    public static Character getFirstCharacter() {
+        Character firstCharacter = new Character();
+        firstCharacter.setUrl("https://www.anapioficeandfire.com/api/characters/1");
+        firstCharacter.setName("Tyrion Lannister");
+
+        return firstCharacter;
+    }
+
+    public static Character getSecondCharacter() {
+        Character secondCharacter = new Character();
+        secondCharacter.setUrl("https://www.anapioficeandfire.com/api/characters/2");
+        secondCharacter.setName("Arya Stark");
+
+        return secondCharacter;
+    }
+
+    public static List<Character> getCharacterList() {
+        return Lists.list(getFirstCharacter(), getSecondCharacter());
     }
 
     public static String asJsonString(final Object obj) {

@@ -5,7 +5,6 @@ feign:
         loggerLevel: FULL
 
 client:
-  book:
     baseUrl: https://www.anapioficeandfire.com/api
 
 logging:
