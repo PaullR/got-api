@@ -3,6 +3,7 @@ package com.got.gotapi.feign;
 import com.got.gotapi.config.FeignClientConfig;
 import com.got.gotapi.model.Book;
 import com.got.gotapi.model.Character;
+import com.got.gotapi.model.House;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,4 +28,10 @@ public interface GotFeignClient {
 
     @GetMapping(value = "/characters/{id}")
     Character getCharacterById(@PathVariable int id);
+
+    @GetMapping(value = "/houses?{queryParams}")
+    List<House> getAllHouses(@SpringQueryMap Map<String, String> queryParams);
+
+    @GetMapping(value = "/houses/{id}")
+    House getHouseById(@PathVariable int id);
 }

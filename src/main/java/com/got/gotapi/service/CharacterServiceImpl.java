@@ -27,8 +27,8 @@ public class CharacterServiceImpl implements CharacterService{
 
     @Override
     public Character getCharacterById(int id) {
-
         log.info("Get character by id: {}", id);
+
         return gotFeignClient.getCharacterById(id);
     }
 }
