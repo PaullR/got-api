@@ -4,8 +4,8 @@ import io.cucumber.java.en.When;
 
 public class StepDefinitions extends SpringIntegrationTest {
 
-    @When("^the client calls /version$")
-    public void the_client_issues_GET_version() throws Throwable {
-        executeGet("http://localhost:8080/version");
+    @When("^the client calls /books$")
+    public void the_client_calls_GET_all_books() throws Throwable {
+        executeGet("http://localhost:8080/books");
     }
 }
