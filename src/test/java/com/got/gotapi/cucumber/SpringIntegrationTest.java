@@ -1,5 +1,6 @@
 package com.got.gotapi.cucumber;
 
+import com.got.gotapi.GotApiApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @CucumberContextConfiguration
-@SpringBootTest
+@SpringBootTest(classes = GotApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class SpringIntegrationTest {
     static ResponseResults latestResponse = null;
 
@@ -30,7 +31,7 @@ public class SpringIntegrationTest {
 
         restTemplate.setErrorHandler(errorHandler);
         latestResponse = restTemplate.execute(url, HttpMethod.GET, requestCallback, response -> {
-            if (errorHandler.hadError) {
+            if (errorHandler.getHadError()) {
                 return (errorHandler.getResults());
             } else {
                 return (new ResponseResults(response));
